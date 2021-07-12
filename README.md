@@ -468,6 +468,8 @@ mysql> show databases;
 5 rows in set (0.00 sec)
 ```
 おわり
+# 参考にしたコンテンツ（↓とてもわかりやすい）
+# https://hackerdemy.com/2019/09/09/docker-django/
 
 
 
