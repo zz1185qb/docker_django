@@ -1,0 +1,43 @@
+# ============================================================
+# docker-compose.yml (Django + MySQL) Ver 2021.06.23
+# ============================================================
+version: '3'
+services:
+  nginx:
+    image: nginx:1.13
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./docker/nginx/conf:/etc/nginx/conf.d
+      - ./docker/nginx/uwsgi_params:/etc/nginx/uwsgi_params
+      - ./static:/static
+    tty: true
+    depends_on:
+      - python
+
+  db:
+    build: ./docker/mysql
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      TZ: "Asia/Tokyo"
+    volumes:
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./docker/mysql/data:/var/lib/mysql
+      - ./docker/sql:/docker-entrypoint-initdb.d
+    tty: true
+
+  python:
+    build: ./docker/python
+    command: uwsgi --socket :8001 --module app.wsgi --py-autoreload 1 --logto /tmp/mylog.log
+    # command: python3 app/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./apps:/code
+      - ./static:/static
+    expose:
+      - "8001"
+    tty: true
+    depends_on:
+      - db
