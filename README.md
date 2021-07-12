@@ -9,8 +9,6 @@
 # Mysql  5.7
 # Last Change: 2021/07/04 09:45:07.
 # ----------------------------------------------------------------
-# 参考コンテンツ（↓とてもわかりやすい）
-# https://hackerdemy.com/2019/09/09/docker-django/
 
 ```
 # docker_django 実行方法
@@ -470,7 +468,6 @@ mysql> show databases;
 おわり
 
 参考にしたコンテンツ（↓とてもわかりやすい）
-
 https://hackerdemy.com/2019/09/09/docker-django/
 
 
