@@ -7,7 +7,7 @@
 # Python 3.6.6
 # Django 2.2 -> 3.0.7
 # Mysql  5.7
-# Last Change: 2021/07/04 09:45:07.
+# Last Change: 2021/07/13 02:42:43.
 # ----------------------------------------------------------------
 ```
 # docker_django 実行方法
@@ -86,20 +86,20 @@ docker-django
 $ cd (path)/docker_django  Dockerホルダーへ移動
 
 
-# docker環境の構築
+## docker環境の構築
 $ docker-compose up -d --build # up -d detach モードで起動, 構築 --build  
 
 
-# Docker system 状態の確認
+## Docker system 状態の確認
 $ docker system df
 TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
 Images          3         3         2.072GB   0B (0%)
 Containers      3         3         222.3kB   0B (0%)
 Local Volumes   37        0         1.028GB   1.028GB (100%)
 Build Cache     145       0         6.164GB   6.164GB
-# 削除: $ docker stop $(docker ps -q) | docker rm $(docker ps -aq) | docker rmi $(docker images -q)
+## 削除: $ docker stop $(docker ps -q) | docker rm $(docker ps -aq) | docker rmi $(docker images -q)
 
-# Docker プロセスの確認
+## Docker プロセスの確認
 $ docker ps
 CONTAINER ID   IMAGE               COMMAND                  CREATED              STATUS              PORTS                                         NAMES
 1f69b7914efb   nginx:1.13             "nginx -g 'daemon of…"   17 seconds ago   Up 14 seconds   80/tcp, 0.0.0.0:8000->8000/tcp, :::8000->8000/tcp      docker_django_nginx_1
@@ -107,9 +107,9 @@ CONTAINER ID   IMAGE               COMMAND                  CREATED             
 8474ace72292   docker_django_db       "docker-entrypoint.s…"   23 seconds ago   Up 19 seconds   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp, 33060/tcp   docker_django_db_1
 # Step 1-1 Mysqlコンテナに入る
 $ docker exec -it docker_django_db_1 sh
-#  
+#
+
 ## Mysql のデータを確認する
- 
 # cd docker-entrypoint-initdb.d
 # pwd
 /docker-entrypoint-initdb.d
@@ -210,7 +210,7 @@ http://localhost:8000/  -> django Opening screen
 $ docker-compose exec app django-admin startproject test
 ※プロジェクト名の変更
 
-# コンテナのリスタート
+## コンテナのリスタート
 $ docker-compose down
 $ docker-compose up -d
 
@@ -346,8 +346,8 @@ mysql> SELECT user, host FROM mysql.user;
 mysql > ¥q
 Bye
 
-# MYSQLコンテナ作成後、01_create_db.sqlは自動実行されているため
-# 「testdb」の各テーブルもリストア済み.テーブルも確認.
+## MYSQLコンテナ作成後、01_create_db.sqlは自動実行されているため
+## 「testdb」の各テーブルもリストア済み.テーブルも確認.
 
 # mysql -u testdb -p
 Enter password:testdb
@@ -365,7 +365,7 @@ mysql> show tables;
 5 rows in set (0.00 sec)
 mysql > ¥q
 
-# もし、Docker MYSQLにtableがなければリストア（shellを起動）
+## もし、Docker MYSQLにtableがなければリストア（shellを起動）
 
 # pwd
 # cd /docker-entrypoint-initdb.d
@@ -373,7 +373,7 @@ mysql > ¥q
 01_create_db.sql  02_db_create.sh  105_quake_tbl.sql_  108_quake_tbl.sql_  109_quake_tbl.sql_  112_quake_tbl.sql_  113_quake_tbl.sql_
 
 # sh 02_db_create.sh
-# しばらく時間がかかる...
+## しばらく時間がかかる...
 Mysql table creation Start
 mysql: [Warning] Using a password on the command line interface can be insecure.
    :
@@ -417,7 +417,7 @@ GRANT ALL ON testdb.* TO testdb@localhost identified by 'testdb';
 create database testdb;
 
 (shell) 02_db_create.sh
-#  データベースのリストア
+## データベースのリストア
 mysql -u testdb -ptestdb testdb < 105_quake_tbl.sql_
  :
 mysql -u testdb -ptestdb testdb < 113_quake_tbl.sql_
@@ -433,7 +433,7 @@ Containers      2         2         5.79kB    0B (0%)
 Local Volumes   93        0         8.289GB   8.289GB (100%)
 Build Cache     385       0         11.07GB   11.07GB
 
-# 一括削除  https://qiita.com/takuma-jpn/items/455e911d77f8361cf0de
+## 一括削除  https://qiita.com/takuma-jpn/items/455e911d77f8361cf0de
 $ docker stop $(docker ps -q) | docker rm $(docker ps -aq) | docker rmi $(docker images -q)
 
 削除後
