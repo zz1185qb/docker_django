@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# Python behavior and MySQL connection test
 import numpy
 import mysql.connector as mysql
 
