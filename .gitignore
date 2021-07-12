@@ -2,6 +2,7 @@
 ################
 # Environments #
 ################
+.idea/
 .venv
 env/
 venv/

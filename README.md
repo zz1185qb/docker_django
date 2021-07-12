@@ -14,6 +14,7 @@
 # docker_django 実行方法
 ```bash
 $ git clone https://github.com/zz1185qb/docker_django.git
+$ cd docker_django
 $ docker-compose up -d --build
 $ docker ps
 CONTAINER ID   IMAGE               COMMAND                  CREATED              STATUS              PORTS                                         NAMES
