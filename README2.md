@@ -260,9 +260,9 @@ services:
     command: uwsgi --socket :8001 --module app.wsgi --py-autoreload 1 --logto /tmp/mylog.log # コンテナ起動時のコマンド
     # command: python3 app/manage.py runserver 0.0.0.0:8000
     volumes:
-      - ./apps:/code               # djangoのアプリケーションファイルを保存するためのディレクトリをマウント
-      - ./static:/static           # 静的ファイルのディレクトリをマウント
-      - ./Documents:/Documents     # Documents  データ
+      - ./apps:/code               # Django,Python projectコードをマウント
+      - ./static:/static           # Django 静的ファイルディレクトリをマウント
+      - ./data:/data               # projectデータ用ディレクトリをマウント
     expose:
       - "8001"                     # 公開するポートの設定    
 

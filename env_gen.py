@@ -6,12 +6,13 @@
  $ python ./env_gen.py
 
  docker-compose.yml
+ python:
     volumes:
-      - ../src/:/src                   # [..src/ ソースコードを管理するフォルダ] :/src
-      - ../pip-lib/:/pip-lib           # [ライブラリを管理するフォルダ] :/pip-lib
-      - /Users/taka/Documents/:/Documents  # [過去データCSVFILEを格納するフォルダ] :/Documents
+      - ./apps:/code               # Django,Python projectコードをマウント
+      - ./static:/static           # Django 静的ファイルディレクトリをマウント
+      - ./data:/data               # projectデータ用ディレクトリをマウント
 
-
+ Last Change: 2021/07/13 18:42:43.
 """
 import environ
 import os
@@ -57,7 +58,8 @@ MYSQL_PORT=3306
 
 # /Users/%s/Document/volcano/csv/earthquake/man
 if Docker:
-    docdir = '/Documents'
+    # projectデータ用ディレクトリ
+    docdir = '/data'
 else :
     docdir = '/Users/{}/Documents'.format(pwd.getpwuid(os.getuid())[0])
 
