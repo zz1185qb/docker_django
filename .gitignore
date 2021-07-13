@@ -7,12 +7,19 @@
 env/
 venv/
 
+########################
+###  Project & data  ###
+########################
+data/
+apps/app/
+apps/eqchangepy/
+apps/jchart/
+
 ##################
 ###  Mysql DB  ###
 ##################
 # MySQLの永続化データ
 docker/mysql/data/
-# docker/sql/
 
 ######################
 # OS generated files #

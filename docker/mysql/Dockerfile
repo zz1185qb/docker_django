@@ -2,4 +2,3 @@
 # MySQL 5.7 Dockerfile Ver 2021.05.01
 # ============================================================
 FROM mysql:5.7
-COPY /entry/* /docker-entrypoint-initdb.d/
