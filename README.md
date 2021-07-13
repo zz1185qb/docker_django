@@ -7,7 +7,7 @@
 # Docker Desktop Mac 3.3.3
 # docker-compose version 1.29.1
 # Python 3.6.6
-# Django 2.2 -> 3.0.7
+# Django 3.0.7
 # Mysql  5.7
 # Last Change: 2021/07/13 02:42:43.
 # ----------------------------------------------------------------
@@ -20,11 +20,13 @@ CONTAINER ID   IMAGE                  COMMAND                  CREATED       STA
 47032c46a434   docker_django_python   "uwsgi --socket :800…"   2 hours ago   Up 2 hours   8001/tcp                                               docker_django_python_1
 c72336718a3d   docker_django_db       "docker-entrypoint.s…"   2 hours ago   Up 2 hours   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp, 33060/tcp   docker_django_db_1
 
-# Docker環境の構築完了。その後設定ディレクトリに開発プロジェクトやデータなどを配置。 
+Docker開発環境の構築完了。
+その後、設定ディレクトリにProjectやDataを配置。
 
-★上記の構築にあたり参考にさせていただいたコンテンツ
-
+★★★ 上記のDocker環境の構築にあたり参考にさせていただいたコンテンツ ★★★
 https://hackerdemy.com/2019/09/09/docker-django/
+
+
 ```
 おわり
 
