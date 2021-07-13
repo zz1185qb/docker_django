@@ -23,10 +23,9 @@ c72336718a3d   docker_django_db       "docker-entrypoint.s…"   2 hours ago   U
 Docker開発環境の構築完了。
 その後、設定ディレクトリにProjectやDataを配置。
 
-★★★ 上記のDocker環境の構築にあたり参考にさせていただいたコンテンツ ★★★
+上記のDocker環境の構築にあたり参考にさせていただいたコンテンツ
 https://hackerdemy.com/2019/09/09/docker-django/
-
-
+ありがとうございます。
 ```
 おわり
 
