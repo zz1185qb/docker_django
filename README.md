@@ -9,7 +9,7 @@
 # Python 3.6.6
 # Django 3.0.7
 # Mysql  5.7
-# Last Change: 2021/07/13 02:42:43.
+# Last Change: 2021/07/12 08:42:43.
 # ----------------------------------------------------------------
 $ git clone https://github.com/zz1185qb/docker_django.git
 $ cd docker_django

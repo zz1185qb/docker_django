@@ -1,7 +1,6 @@
 ```
-# docker_django : Djangoの開発環境(nginx + python + mysql)
+# docker_django : Djangoの開発環境(Nginx + Python + Mysql)
 # ----------------------------------------------------------------
-# 動作環境
 # Docker Desktop Mac 3.3.3
 # docker-compose version 1.29.1
 # Python 3.6.6
@@ -9,6 +8,8 @@
 # Mysql  5.7
 # Last Change: 2021/07/13 17:42:43.
 # ----------------------------------------------------------------
+環境構築にあたり参考にさせていただいたコンテンツ（とてもわかりやすい、感謝）
+https://hackerdemy.com/2019/09/09/docker-django/
 ```
 # docker_django 実行方法
 ```bash
@@ -477,9 +478,6 @@ mysql> show databases;
 ```
 おわり
 
-参考にしたコンテンツ（とてもわかりやすい）
-
-https://hackerdemy.com/2019/09/09/docker-django/
 
 ## 以下は参考、そのうちに整理
 $ git remote -v
