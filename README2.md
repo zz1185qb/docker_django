@@ -264,6 +264,8 @@ services:
       - ./apps:/code               # Django,Python projectコードをマウント
       - ./static:/static           # Django 静的ファイルディレクトリをマウント
       - ./data:/data               # projectデータ用ディレクトリをマウント
+    environment:
+      - "TZ=Asia/Tokyo"            # コンテナのtimezoneをJSTへ
     expose:
       - "8001"                     # 公開するポートの設定    
 
@@ -508,3 +510,25 @@ origin	https://github.com/zz1185qb/docker_django.git (push)
 
 test test
 test test
+$ cat config 
+[remote "origin"]
+	url = vois@volmac02:git/eqchangepy.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+
+$ git remote -v
+origin	vois@volmac02:git/eqchangepy.git (fetch)
+origin	vois@volmac02:git/eqchangepy.git (push)
+
+$ git remote set-url --add --push origin vois@volmac02:git/eqchangpy.git
+$ git remote set-url --add --push origin https://github.com/zz1185qb/eqchangpy.git
+
+$ git remote -v
+origin	vois@volmac02:git/eqchangepy.git (fetch)
+origin	vois@volmac02:git/eqchangpy.git (push)
+origin	https://github.com/zz1185qb/eqchangpy.git (push)
+
+[remote "origin"]
+	url = vois@volmac02:git/eqchangepy.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+	pushurl = vois@volmac02:git/eqchangpy.git
+	pushurl = https://github.com/zz1185qb/eqchangpy.git
