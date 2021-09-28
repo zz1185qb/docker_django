@@ -8,7 +8,7 @@ import mysql.connector as mysql
 conn = mysql.connect(
     host="docker_django_db_1",
     user="root",
-    passwd="3#%KA",
+    passwd="XXXXX",       # <- mysql user のパスワードはそれぞれの設定値を入力する.
     port=3306,
     database="testdb"
 )
