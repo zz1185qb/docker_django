@@ -29,14 +29,14 @@ if Docker:
     basedir = '/src'
     env_file = '/src/.env'
     host_name = 'mysql_db'
-    root_pass = '3#%KA'
+    root_pass = 'XXXXX'   # <- mysql user のパスワードはそれぞれの設定値を入力する.
     mysql_pass= 'testdb'
 else:
     basedir = environ.Path(__file__) - 1
     env_file = str(basedir.path(".env"))
     host_name = 'localhost'
-    root_pass = '3#%KA'
-    mysql_pass = '3#%KA'
+    root_pass = 'XXXXX'    # <- mysql user のパスワードはそれぞれの設定値を入力する.
+    mysql_pass = 'XXXXX'   # <- mysql user のパスワードはそれぞれの設定値を入力する.
 
 # External database
 # Mysql   DATABASE_URL=mysql+mysqldb://root:3#%KA@localhost/testdb?charset=utf8
