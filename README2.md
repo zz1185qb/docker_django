@@ -132,7 +132,7 @@ Mysql table creation End
 ## MYSQL コンテナに入る
 ## Docker MySQL testdb ユーザー及びパスワードの確認
 # mysql -u root -p
-password:3#%KA
+password:XXXXX        <- mysql user のパスワードはそれぞれの設定値を入力する.
 mysql> use testdb;
 mysql> show tables;
 +------------------+
@@ -180,7 +180,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'testdb',
         'USER': 'root',
-        'PASSWORD': '3#%KA',
+        'PASSWORD': 'XXXXX',　　　<- mysql user のパスワードはそれぞれの設定値を入力する.
         'HOST': 'db',
         'PORT': '3306',
     }
@@ -276,7 +276,7 @@ services:
 # .env 
 ```bash
 IP=127.0.0.1
-MYSQL_ROOT_PASSWORD='3#%KA'
+MYSQL_ROOT_PASSWORD='XXXXX'　　<- mysql user のパスワードはそれぞれの設定値を入力する.
 
 ```
 # MySQL Dockerfile
@@ -341,7 +341,7 @@ max_allowed_packet=128M
 # MYSQL コンテナに入る
 # testdb ユーザー及びパスワードの設定
 # mysql -u root -p
-password:3#%KA
+password:XXXXX　　　<- mysql user のパスワードはそれぞれの設定値を入力する.
 # MYSQLコンテナ作成後、01_create_db.sqlは自動実行されているため
 # 「testdb」の作成とユーザー作成実施済み.
 # ---- testdb ユーザ作成 & testdb パスワード設定 の確認----
@@ -413,15 +413,15 @@ mysql> show tables;
 ```bash
 ## Mysql コンテナに入ったのちに、mysql にログインできなかった場合の確認箇所
 # mysql -u root -p
-password:3#%KA
+password:XXXXX　　　<- mysql user のパスワードはそれぞれの設定値を入力する.
 
 ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
 
 $ cd /docker_django
 ## docker-compose.yml ディレクトリに .env file が必要
-$ echo "MYSQL_ROOT_PASSWORD='3#%KA'" > .env
+$ echo "MYSQL_ROOT_PASSWORD='XXXXX'" > .env
 $ cat .env
-MYSQL_ROOT_PASSWORD='3#%KA'
+MYSQL_ROOT_PASSWORD='XXXXX'　　　<- mysql user のパスワードはそれぞれの設定値を入力する.
 
 (sql) 01_create_db.sql  コンテナ生成時にtestdbユーザーとtestdbデータベースを作成
 # ---- testdb ユーザ作成 & testdb パスワード設定 ----
@@ -468,7 +468,7 @@ $ docker exec -it docker_django_db_1 sh
  : 
 ## ターミナルからDockerコンテナのmysqlに接続する
 $ mysql -h 127.0.0.1 -P 3306 -u root -p
-Enter password:3#%KA
+Enter password:XXXXX　　　　<- mysql user のパスワードはそれぞれの設定値を入力する.
 mysql> show databases;
 +------------------+
 | Tables_in_testdb |
