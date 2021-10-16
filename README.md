@@ -26,8 +26,10 @@ Docker開発環境の構築完了。
 上記のDocker環境の構築にあたり参考にさせていただいたコンテンツ
 https://hackerdemy.com/2019/09/09/docker-django/
 ありがとうございます。
+
+
 ```
-おわり
+おわり！
 
 
 
