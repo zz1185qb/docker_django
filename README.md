@@ -1,6 +1,6 @@
 # Docker 開発環境の構築
 ```bash
-# docker_django : DjangoのDocker開発環境(Nginx + Python + MySQL) 
+# docker_django : DjangoのDocker開発環境(Nginx + Python + MySQL)
 # GitHub アップロードのテスト
 # ----------------------------------------------------------------
 # 動作環境
@@ -30,9 +30,3 @@ https://hackerdemy.com/2019/09/09/docker-django/
 
 ```
 おわり！
-
-
-
-
-
-

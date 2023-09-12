@@ -23,7 +23,7 @@ b089f139536e   docker_django_python   "uwsgi --socket :800…"   11 minutes ago 
 15785fbd23d3   docker_django_db       "docker-entrypoint.s…"   11 minutes ago   Up 11 minutes   33060/tcp, 127.0.0.1:3307->3306/tcp   docker_django_db_1
 
 ## Mysql コンテナに入る
-## 検測値ファイルの MySQL リストア 
+## 検測値ファイルの MySQL リストア
 $ docker exec -it docker_django_db_1 sh
 
 # cd docker-entrypoint-initdb.d
@@ -33,7 +33,7 @@ $ docker exec -it docker_django_db_1 sh
   : sql dump file リストア中...
 # exit
 
-$ Python 3.6.6 Runnig test 
+$ Python 3.6.6 Runnig test
 $ docker exec -it docker_django_python_1 sh
 # pwd
 /code
@@ -56,31 +56,31 @@ tree
 docker-django
 .
 ├── README.md
-├── Dockerfile                               
-├── docker-compose.yaml                      
-├── .env       docker-compose.yaml の環境変数                                                                
-├── docker                                   
-│     ├── mysql                             
+├── Dockerfile
+├── docker-compose.yaml
+├── .env       docker-compose.yaml の環境変数
+├── docker
+│     ├── mysql
 │     │     ├── data                       MySQLの永続化データ
-│     │     └── Dockerfile                 
-│     ├── nignx                             
+│     │     └── Dockerfile
+│     ├── nignx
 │     │     ├── conf
 │     │     │     └── app_nginx.conf      Nginxの設定ファイル
 │     │     └── uwsgi_params               uwsgi_params
-│     ├── python                            
+│     ├── python
 │     │     ├── Dockerfile
 │     │     └── requirements.txt
-│     └── sql                               データベース関係                          
+│     └── sql                               データベース関係
 │            ├── 01_create_db.sql           DBユーザー、データベース作成、権限設定
 │            ├── 02_db_create.sh            SQL Dump File をTableにリストアするshell
 │            └── 105_quake.sql_ .. 113_quake.sql_  SQL Dump Test File
-├── apps                                     
-│     ├── test_docker.py                   
-│     ├── project1                                                      
+├── apps
+│     ├── test_docker.py
+│     ├── project1
 │     ├── :
 │     └── projectX
-├── data  データフォルダー                                
-└── static 
+├── data  データフォルダー
+└── static
 
 ```
 # コンテナのビルドと立ち上げ
@@ -88,7 +88,7 @@ docker-django
 $ cd (path)/docker_django  Dockerホルダーへ移動
 
 ## docker環境の構築
-$ docker-compose up -d --build # up -d detach モードで起動, 構築 --build  
+$ docker-compose up -d --build # up -d detach モードで起動, 構築 --build
 
 
 ## Docker system 状態の確認
@@ -192,9 +192,9 @@ $ cd /docker_django
 $ docker-compose run python ./manage.py makemigrations
 $ docker-compose run python ./manage.py migrate
 Operations to perform:
-   : 
+   :
   Applying sessions.0001_initial... OK
-  
+
 ## 管理画面にログインユーザー等登録
 $ docker-compose run python ./manage.py createsuperuser
 Creating docker_django_python_run ... done
@@ -240,7 +240,7 @@ services:
       - python # アプリケーションサーバが起動してから起動させるため、アプリケーションサーバ用のコンテナとの依存関係を記述します。
 
 
-  db:                              # DBサーバのコンテナの設定                                            
+  db:                              # DBサーバのコンテナの設定
     build: ./docker/mysql          # ./docker/mysql/Dockerfileを使用してイメージをビルド
     container_name: mysql_db       # Docker Mysql の名称
     command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
@@ -254,7 +254,7 @@ services:
       - ./docker/mysql/data:/var/lib/mysql               # データベースのデータを永続化するためにホストのボリュームをマウント
       - ./docker/sql:/docker-entrypoint-initdb.d         # データベースの設定ファイルをマウント
     tty: true                      # 起動状態を維持
-          
+
   python:                          # アプリケーションサーバの設定
     build: ./docker/python         # ./docker/python/Dockerfileを使用してイメージをビルド
     container_name: python3
@@ -267,13 +267,13 @@ services:
     environment:
       - "TZ=Asia/Tokyo"            # コンテナのtimezoneをJSTへ
     expose:
-      - "8001"                     # 公開するポートの設定    
+      - "8001"                     # 公開するポートの設定
 
     tty: true                      # 起動状態を維持
     depends_on:
       - db                         # DBサーバとの接続の設定
 ```
-# .env 
+# .env
 ```bash
 IP=127.0.0.1
 MYSQL_ROOT_PASSWORD='XXXXX'　　<- mysql user のパスワードはそれぞれの設定値を入力する.
@@ -465,7 +465,7 @@ Build Cache     30        0         841.8MB   841.8MB
 $ docker exec -it docker_django_db_1 sh
 # cat /etc/hosts
 127.0.0.1	localhost
- : 
+ :
 ## ターミナルからDockerコンテナのmysqlに接続する
 $ mysql -h 127.0.0.1 -P 3306 -u root -p
 Enter password:XXXXX　　　　<- mysql user のパスワードはそれぞれの設定値を入力する.
@@ -510,7 +510,7 @@ origin	https://github.com/zz1185qb/docker_django.git (push)
 
 test test
 test test
-$ cat config 
+$ cat config
 [remote "origin"]
 	url = vois@volmac02:git/eqchangepy.git
 	fetch = +refs/heads/*:refs/remotes/origin/*
